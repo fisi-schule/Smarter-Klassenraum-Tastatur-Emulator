@@ -2,12 +2,13 @@
 #include "Keyboard.h" // Bibliotek zum emulieren einer Tastartur über USB
 
 // Konfiguration
-char ssid[] = "Pixel_2707";
-char pass[] = "1234567887654321";
+char ssid[] = "BBS3_GSS";
+char pass[] = "GSS_1607!";
 int keyIndex = 0;
 bool val = true;
 
 int status = WL_IDLE_STATUS;
+WiFiServer server(80);
 
 // Start-Prozess
 void setup() {
@@ -42,28 +43,57 @@ void setup() {
   }
   Serial.println("Verbindung erfolgreich");
   Serial.println("");
+  Serial.println("Debug Server auf Port 80 gestartet");
+  server.begin();
+  Serial.println("");
   Serial.println("Wlan Status:");
   printWifiStatus();
 }
 
 // Haupt-Prozess
 void loop() {
-  char input = 0;
-  if(Serial.available())
-  {
-    input = Serial.read();
-    Serial.flush();
+  WiFiClient client = server.available();
+  if (client) {                             
+    String currentLine = "";              
+    while (client.connected()) 
+    {       
+      if (client.available()) 
+      {
+        char c = client.read();
+        if (c == '\n') 
+        {                 
+
+            if (currentLine.length() == 0) {
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+            client.println("<h1>Debug Optionen</h1><br>");
+            client.print("<h3><a href=\"/Test\">Test</a></h3>");
+            client.println();
+            break;
+          }
+          else {   
+            currentLine = "";
+          }
+        }
+        else if (c != '\r') {   
+          currentLine += c;   
+        }
+        if (currentLine.endsWith("GET /Test")) {
+          delay(5000);
+          pressF();         
+        }
+      }
+    }
+
+    client.stop();
   }
-  if (input == '1'){
-    pressF();
-  }
-  input = 0;
 }
 
 // Testfunktion
 void pressF()
 {
-  Keyboard.press('F');
+  Keyboard.write('F');
 }
 
 // Funktion für die Ausgabe der Wlan Verbindungsinformationen

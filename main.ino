@@ -54,7 +54,7 @@ void loop() {
     input = Serial.read();
     Serial.flush();
   }
-  if (input == 1){
+  if (input == '1'){
     pressF();
   }
   input = 0;

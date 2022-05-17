@@ -1,7 +1,7 @@
-#include <SPI.h>
-#include <WiFi101.h>
-#include "Keyboard.h"
+#include <WiFi101.h> // Bibliotek zum steuern von Wlan Karten
+#include "Keyboard.h" // Bibliotek zum emulieren einer Tastartur über USB
 
+// Konfiguration
 char ssid[] = "Pixel_2707";
 char pass[] = "1234567887654321";
 int keyIndex = 0;
@@ -9,6 +9,7 @@ bool val = true;
 
 int status = WL_IDLE_STATUS;
 
+// Start-Prozess
 void setup() {
   Serial.begin(9600);
   Keyboard.begin();
@@ -44,6 +45,8 @@ void setup() {
   Serial.println("Wlan Status:");
   printWifiStatus();
 }
+
+// Haupt-Prozess
 void loop() {
   char input = 0;
   if(Serial.available())
@@ -57,11 +60,13 @@ void loop() {
   input = 0;
 }
 
+// Testfunktion
 void pressF()
 {
   Keyboard.press('F');
 }
 
+// Funktion für die Ausgabe der Wlan Verbindungsinformationen
 void printWifiStatus()
 {
   IPAddress ip = WiFi.localIP();

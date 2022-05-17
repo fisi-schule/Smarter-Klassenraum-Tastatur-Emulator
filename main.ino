@@ -3,7 +3,7 @@
 
 // Konfiguration
 char ssid[] = "BBS3_GSS";
-char pass[] = "GSS_1607!";
+char pass[] = "";
 int keyIndex = 0;
 bool val = true;
 

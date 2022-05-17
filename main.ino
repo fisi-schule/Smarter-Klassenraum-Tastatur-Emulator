@@ -68,7 +68,10 @@ void loop() {
             client.println("Content-type:text/html");
             client.println();
             client.println("<h1>Debug Optionen</h1><br>");
-            client.print("<h3><a href=\"/Test\">Test</a></h3>");
+            client.print("<h2><a href=\"/F\">F</a></h2><br>");
+            client.print("<h2><a href=\"/M\">Mute</a></h2><br>");
+            client.print("<h2><a href=\"/N\">Next Slide</a></h2><br>");
+            client.print("<h2><a href=\"/P\">Previous Slide</a></h2><br>");
             client.println();
             break;
           }
@@ -79,9 +82,21 @@ void loop() {
         else if (c != '\r') {   
           currentLine += c;   
         }
-        if (currentLine.endsWith("GET /Test")) {
+        if (currentLine.endsWith("GET /F")) {
           delay(5000);
-          pressF();         
+          pressF();       
+        }
+        if (currentLine.endsWith("GET /M")) {
+          delay(5000);
+          bbbMute();       
+        }
+        if (currentLine.endsWith("GET /N")) {
+          delay(5000);
+          bbbNextSlidePresenter();         
+        }
+        if (currentLine.endsWith("GET /P")) {
+          delay(5000);
+          bbbPreviousSlidePresenter();         
         }
       }
     }
@@ -94,6 +109,25 @@ void loop() {
 void pressF()
 {
   Keyboard.write('F');
+}
+
+void bbbMute()
+{
+  Keyboard.press(KEY_LEFT_ALT);
+  delay(200);
+  Keyboard.press('m');
+  delay(200);
+  Keyboard.releaseAll();
+}
+
+void bbbNextSlidePresenter()
+{
+  Keyboard.write(KEY_RIGHT_ARROW);
+}
+
+void bbbPreviousSlidePresenter()
+{
+  Keyboard.write(KEY_LEFT_ARROW);
 }
 
 // Funktion für die Ausgabe der Wlan Verbindungsinformationen

@@ -70,7 +70,7 @@ void loop() { // Wird nach der setup Funktion ausgeführt und fortlaufend wieder
             	client.println("HTTP/1.1 200 OK");
             	client.println("Content-type:text/html");
             	client.println();
-            	client.println("<h1>Debug Optionen</h1><br>");
+            	client.println("<h1>Debug Options</h1><br>");
             	client.print("<h2><a href=\"/F\">F</a></h2><br>");
             	client.print("<h2><a href=\"/M\">Mute</a></h2><br>");
             	client.print("<h2><a href=\"/N\">Next Slide</a></h2><br>");

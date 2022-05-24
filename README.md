@@ -2,6 +2,8 @@
 
 Im Fach Cyber-physisches Systeme sollen die Schüler ein cyber-physisches System entwickeln, im Rahmen eines modernen digitalen Klassenraums. Dazu werden wir einen Aktor konstruieren, der die Daten von anderen Sensoren verarbeitet und anhand dieser vordefinierte Befehle als Tastatureingaben an ein Windows Gerät sendet. Dazu kann das Muten in BBB oder auch das sperren des Computers gezählt werden.
 
+![Aufbau](https://i.imgur.com/kfZlaKt.jpeg)
+
 ## Lizenz
 
 CC BY-SA 4.0

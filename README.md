@@ -6,6 +6,6 @@ Im Fach Cyber-physisches Systeme sollen die Schüler ein cyber-physisches System
 
 CC BY-SA 4.0
 
-## Author Information
+## Informationen zum Autor
 
 Dieses Projekt wurde ursprünglich von [rootsaid](https://github.com/rootsaid) in 2017 erstellt und von Cayne Vejvoda und OneCyanide in 2022 geforked und an unsere Anforderungen angepasst.

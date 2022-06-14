@@ -5,8 +5,6 @@
 char ssid[] = "BBS3_GSS"; // SSID eines Wlans, über welche die Kommunikation zu dem Sensor stattfindet
 char pass[] = ""; // Password eines Wlans, über welche die Kommunikation zu dem Sensor stattfindet
 
-int keyIndex = 0;
-bool val = true;
 
 int status = WL_IDLE_STATUS; // Setzen des Wlan Status auf WL_IDLE_STATUS
 WiFiServer server(80); // Setzen des WLan Server Port auf 80

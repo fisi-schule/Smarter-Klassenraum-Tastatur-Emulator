@@ -28,6 +28,12 @@ Nach dem der MKR1000 sich mit dem angegbenen Wlan verbunden hat, kann man über 
 
 Tipp: Die IP-Adresse des MKR1000 wird auf der Seriellen Schnittstelle ausgegeben.
 
+Folgene Debug Optionen stehen zur Verfügung:
+- Taste F drücken
+- BBB, Nächste Folie
+- BBB, Voriege Folie
+- BBB, Stummschalten
+
 
 ## Lizenz
 
